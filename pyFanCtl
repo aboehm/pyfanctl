@@ -1,0 +1,10 @@
+#!/bin/sh
+
+if [ -L $0 ]
+then	D=`readlink $0`
+	D=`dirname $D`
+else	D=`dirname $0`
+fi
+
+cd $D
+python pyFanCtl.py

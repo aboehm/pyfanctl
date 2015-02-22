@@ -1,0 +1,182 @@
+<?xml version="1.0"?>
+<glade-interface>
+  <!-- interface-requires gtk+ 2.16 -->
+  <!-- interface-naming-policy project-wide -->
+  <widget class="GtkWindow" id="window">
+    <property name="app_paintable">True</property>
+    <property name="border_width">5</property>
+    <property name="resizable">False</property>
+    <property name="modal">True</property>
+    <property name="window_position">mouse</property>
+    <property name="skip_taskbar_hint">True</property>
+    <property name="skip_pager_hint">True</property>
+    <property name="urgency_hint">True</property>
+    <property name="decorated">False</property>
+    <property name="deletable">False</property>
+    <signal name="focus_out_event" handler="on_window_focus_out_event"/>
+    <child>
+      <widget class="GtkVBox" id="vbox">
+        <property name="visible">True</property>
+        <property name="orientation">vertical</property>
+        <child>
+          <widget class="GtkLabel" id="label_speed">
+            <property name="visible">True</property>
+            <property name="label" translatable="yes">label</property>
+          </widget>
+          <packing>
+            <property name="fill">False</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkHSeparator" id="hseparator1">
+            <property name="visible">True</property>
+          </widget>
+          <packing>
+            <property name="expand">False</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkVBox" id="vbox_mode">
+            <property name="visible">True</property>
+            <property name="orientation">vertical</property>
+            <child>
+              <widget class="GtkRadioButton" id="radiobutton_off">
+                <property name="label" translatable="yes">Off</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">False</property>
+                <property name="draw_indicator">True</property>
+                <property name="group">radiobutton_auto</property>
+                <signal name="toggled" handler="on_radiobutton_off_toggled"/>
+                <signal name="group_changed" handler="on_radiobutton_off_group_changed"/>
+              </widget>
+              <packing>
+                <property name="fill">False</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkRadioButton" id="radiobutton_auto">
+                <property name="label" translatable="yes">Auto</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">False</property>
+                <property name="active">True</property>
+                <property name="draw_indicator">True</property>
+                <signal name="toggled" handler="on_radiobutton_auto_toggled"/>
+              </widget>
+              <packing>
+                <property name="fill">False</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkRadioButton" id="radiobutton_disengaged">
+                <property name="label" translatable="yes">Disengaged</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">False</property>
+                <property name="active">True</property>
+                <property name="draw_indicator">True</property>
+                <property name="group">radiobutton_auto</property>
+                <signal name="toggled" handler="on_radiobutton_disengaged_toggled"/>
+              </widget>
+              <packing>
+                <property name="fill">False</property>
+                <property name="position">2</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkVBox" id="vbox5">
+                <property name="visible">True</property>
+                <property name="orientation">vertical</property>
+                <child>
+                  <widget class="GtkRadioButton" id="radiobutton_manuel">
+                    <property name="label" translatable="yes">Manuel</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">False</property>
+                    <property name="xalign">0</property>
+                    <property name="yalign">0</property>
+                    <property name="image_position">right</property>
+                    <property name="active">True</property>
+                    <property name="draw_indicator">True</property>
+                    <property name="group">radiobutton_auto</property>
+                    <signal name="toggled" handler="on_radiobutton_manuel_toggled"/>
+                  </widget>
+                  <packing>
+                    <property name="position">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkHScale" id="scale_speed">
+                    <property name="width_request">200</property>
+                    <property name="can_focus">True</property>
+                    <property name="events"></property>
+                    <property name="adjustment">1 1 8 1 1 1</property>
+                    <property name="lower_stepper_sensitivity">on</property>
+                    <property name="upper_stepper_sensitivity">on</property>
+                    <property name="show_fill_level">True</property>
+                    <property name="fill_level">7</property>
+                    <property name="value_pos">bottom</property>
+                    <signal name="format_value" handler="on_speed_format_value"/>
+                    <signal name="button_release_event" handler="on_scale_speed_button_release_event"/>
+                  </widget>
+                  <packing>
+                    <property name="fill">False</property>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
+              </widget>
+              <packing>
+                <property name="position">3</property>
+              </packing>
+            </child>
+          </widget>
+          <packing>
+            <property name="position">2</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkHSeparator" id="hseparator2">
+            <property name="visible">True</property>
+          </widget>
+          <packing>
+            <property name="expand">False</property>
+            <property name="position">3</property>
+          </packing>
+        </child>
+	  <child>
+	  <widget class="GtkButton" id="about">
+	    <property name="visible">True</property>
+	    <property name="label">gtk-about</property>
+	    <property name="can_focus">True</property>
+	    <property name="receives_default">True</property>
+	    <property name="relief">none</property>
+	    <property name="use_stock">True</property>
+	    <signal name="clicked" handler="on_about_clicked"/>
+	  </widget>
+	  <packing>
+	    <property name="position">4</property>
+	  </packing>
+	</child>
+	<child>
+	  <widget class="GtkButton" id="quit">
+	    <property name="visible">True</property>
+	    <property name="label">gtk-quit</property>
+	    <property name="can_focus">True</property>
+	    <property name="receives_default">True</property>
+	    <property name="relief">none</property>
+	    <property name="use_stock">True</property>
+	    <signal name="clicked" handler="on_quit_clicked"/>
+	  </widget>
+	  <packing>
+	    <property name="position">5</property>
+	  </packing>
+	</child>
+      </widget>
+    </child>
+  </widget>
+</glade-interface>
